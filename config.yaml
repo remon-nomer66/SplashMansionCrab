@@ -2,6 +2,8 @@
 
 language: ja  # 使用する言語 ('ja' または 'en')
 
+sensor_interval: 5  # 全センサー共通の取得頻度（秒）
+
 sms:
   enabled: true
   recipients:

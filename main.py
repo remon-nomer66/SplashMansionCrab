@@ -66,11 +66,14 @@ async def main():
     language = config.get('language', 'ja')
     strings = Strings(language=language)
 
+    # グローバルなセンサー取得頻度の設定
+    global_interval = config.get('sensor_interval', 5)  # デフォルトは5秒
+
     # センサーの初期化（コード内で直接定義）
     sensors = [
-        AmmoniaSensor(interval=5),
-        PHSensor(interval=10),
-        O2Sensor(interval=7)
+        AmmoniaSensor(interval=global_interval),
+        PHSensor(interval=global_interval),
+        O2Sensor(interval=global_interval)
     ]
 
     # アラームの初期化
