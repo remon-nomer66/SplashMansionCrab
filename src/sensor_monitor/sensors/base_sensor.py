@@ -3,10 +3,10 @@
 class BaseSensor:
     def __init__(self, name, safe_range, interval):
         """
-        基本センサークラス
-        :param name: センサー名
-        :param safe_range: 安全範囲 (タプル: (最小値, 最大値))
-        :param interval: 値を取得する間隔（秒）
+        Base Sensor Class
+        :param name: Sensor name
+        :param safe_range: Safe range (tuple: (min, max))
+        :param interval: Interval to fetch value (seconds)
         """
         self.name = name
         self.safe_range = safe_range
@@ -14,12 +14,12 @@ class BaseSensor:
 
     def get_value(self):
         """
-        センサー値を取得する（サブクラスで実装）
+        Fetch sensor value (to be implemented by subclasses)
         """
         raise NotImplementedError
 
     def is_safe_level(self, value):
         """
-        値が安全範囲内かをチェックする
+        Check if the value is within the safe range
         """
         return self.safe_range[0] <= value <= self.safe_range[1]

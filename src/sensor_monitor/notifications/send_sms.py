@@ -3,28 +3,38 @@
 import logging
 
 class SMSNotification:
-    def __init__(self, recipients=None):
+    def __init__(self, strings, recipients=None):
         """
-        SMS通知クラス
-        :param recipients: 受信者リスト
+        SMS Notification Class
+        :param strings: Strings instance
+        :param recipients: List of recipients
         """
+        self.strings = strings
         self.recipients = recipients if recipients else []
 
     def set_recipients(self, recipients):
         """
-        受信者リストを設定する
+        Set the list of recipients
         """
         self.recipients = recipients
 
-    def send_notification(self, message):
+    def send_notification(self, message, safe_min, safe_max):
         """
-        SMSを送信する処理
-        :param message: 送信するメッセージ内容
+        Send SMS notification
+        :param message: Dictionary containing 'sensor_name' and 'value'
+        :param safe_min: Minimum safe value
+        :param safe_max: Maximum safe value
         """
+        formatted_message = self.strings.get(
+            'SENSOR_DANGER_MESSAGE',
+            sensor_name=message['sensor_name'],
+            value=message['value'],
+            min=safe_min,
+            max=safe_max
+        )
         for recipient in self.recipients:
-            # 実際のSMS送信処理をここに記述
-            # 例: 外部APIを呼び出してSMSを送信
-            # response = sms_api.send(to=recipient, message=message)
-            logging.info(f"SMS送信先: {recipient}, メッセージ: {message}")
-            # ダミー送信としてログに記録
+            # Implement actual SMS sending logic here
+            # Example: response = sms_api.send(to=recipient, message=formatted_message)
+            logging.info(self.strings.get('SMS_SENT', message=formatted_message))
+            # Dummy send as log
             pass

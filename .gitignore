@@ -1,2 +1,4 @@
 .DS_Store
 .venv
+sensor_monitor.egg-info
+sensor_monitor.log

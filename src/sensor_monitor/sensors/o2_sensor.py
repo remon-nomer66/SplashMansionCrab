@@ -4,9 +4,9 @@ import random
 from sensor_monitor.sensors.base_sensor import BaseSensor
 
 class O2Sensor(BaseSensor):
-    def __init__(self, interval=5):
-        super().__init__("酸素センサー", (4.0, 8.0), interval)
+    def __init__(self, name, interval=5):
+        super().__init__(name, (4.0, 8.0), interval)
 
     def get_value(self):
-        # ダミー値をランダムに生成
+        # Generate dummy value
         return round(random.uniform(3.0, 9.0), 2)

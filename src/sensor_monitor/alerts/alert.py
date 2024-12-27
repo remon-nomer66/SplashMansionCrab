@@ -3,14 +3,18 @@
 import logging
 
 class Alarm:
-    def __init__(self):
-        pass
+    def __init__(self, strings):
+        """
+        Alarm Class
+        :param strings: Strings instance
+        """
+        self.strings = strings
 
     def trigger(self):
         """
-        アラームを鳴らす処理
+        Trigger the alarm
         """
-        # 実際のアラーム鳴動処理をここに記述
-        logging.warning("アラームを鳴らします。")
-        # 例: GPIOピンを操作してアラームを鳴らすなど
+        # Get log message from Strings
+        logging.warning(self.strings.get('ALARM_TRIGGER'))
+        # Implement actual alarm triggering logic here
         pass
