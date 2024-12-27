@@ -1,4 +1,4 @@
-# send_sms.py
+# src/sensor_monitor/notifications/send_sms.py
 
 import logging
 

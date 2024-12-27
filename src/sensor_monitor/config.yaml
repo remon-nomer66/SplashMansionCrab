@@ -1,4 +1,4 @@
-# config.yaml
+# src/sensor_monitor/config.yaml
 
 language: ja  # 使用する言語 ('ja' または 'en')
 

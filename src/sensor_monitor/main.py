@@ -1,13 +1,15 @@
-# main.py
+# src/sensor_monitor/main.py
 
 import asyncio
 import yaml
 import logging
 from logging.handlers import RotatingFileHandler
-from sensors import AmmoniaSensor, PHSensor, O2Sensor
-from alert import Alarm
-from send_sms import SMSNotification
-from strings import Strings
+from sensor_monitor.sensors.ammonia_sensor import AmmoniaSensor
+from sensor_monitor.sensors.ph_sensor import PHSensor
+from sensor_monitor.sensors.o2_sensor import O2Sensor
+from sensor_monitor.alerts.alert import Alarm
+from sensor_monitor.notifications.send_sms import SMSNotification
+from sensor_monitor.utils.strings import Strings
 
 # ロギングの設定
 def setup_logging():
@@ -103,4 +105,8 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logging.info("プログラムを終了します。")
+        # ログに多言語対応のメッセージを出力
+        config = load_config()
+        language = config.get('language', 'ja')
+        strings = Strings(language=language)
+        logging.info(strings.get('PROGRAM_EXIT'))

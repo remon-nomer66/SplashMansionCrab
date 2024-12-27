@@ -1,7 +1,9 @@
-# test_sensors.py
+# tests/test_sensors.py
 
 import unittest
-from sensors import AmmoniaSensor, PHSensor, O2Sensor
+from sensor_monitor.sensors.ammonia_sensor import AmmoniaSensor
+from sensor_monitor.sensors.ph_sensor import PHSensor
+from sensor_monitor.sensors.o2_sensor import O2Sensor
 
 class TestSensors(unittest.TestCase):
     def test_ammonia_sensor_safe(self):

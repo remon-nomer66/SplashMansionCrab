@@ -1,4 +1,4 @@
-# alert.py
+# src/sensor_monitor/alerts/alert.py
 
 import logging
 

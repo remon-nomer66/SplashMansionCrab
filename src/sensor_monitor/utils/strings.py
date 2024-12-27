@@ -1,4 +1,4 @@
-# strings.py
+# src/sensor_monitor/utils/strings.py
 
 class Strings:
     def __init__(self, language='ja'):
