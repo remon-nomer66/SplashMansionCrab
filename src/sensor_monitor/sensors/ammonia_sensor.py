@@ -9,4 +9,6 @@ class AmmoniaSensor(BaseSensor):
 
     def get_value(self):
         # Generate dummy value
+        # RS485からデータを取得するコードをここに追加します
+        # return で取得したデータを返します
         return round(random.uniform(-0.5, 1.5), 2)
