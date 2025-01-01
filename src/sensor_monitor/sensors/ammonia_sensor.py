@@ -15,16 +15,7 @@ class AmmoniaSensor(BaseSensor):
     
     def get_value(self):
         # Generate dummy value
-        #時間で徐々に増加していく信号データを作成する
-   
-        amo_list = []
-        for i in range (0,0.5,0.01):
-            amo_list.append(i)
-        
-        ##flag = check_amo_list(amo_list)
 
-        # return flag
-
-
-
-        # return round(random.uniform(0, 1000), 2) #false
+        # RS485からデータを取得するコードをここに追加します
+        # return で取得したデータを返します
+        return round(random.uniform(-0.5, 1.5), 2)

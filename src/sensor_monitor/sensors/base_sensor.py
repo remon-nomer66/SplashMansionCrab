@@ -18,8 +18,18 @@ class BaseSensor:
         """
         raise NotImplementedError
 
+    # このメソッドは、センサーの値が安全範囲内にあるかどうかを確認します。
+    # 出力は、センサーの値が安全範囲内にある場合はTrue、それ以外の場合はFalseです。
     def is_safe_level(self, value):
         """
         Check if the value is within the safe range
         """
+        # 各値をリストに保存しておく。
+        # リストに追加していく
+        # 喫緊の10この値が、安全範囲を超えているかどうかを確認する
+        # 超えていたら、警告を出す False    
+        # 超えていなかったら、安全であると表示する  True
+
+        # returnでは、センサーの値が安全範囲内にあるかどうかを確認します。
+        # 返す値は、センサーの値が安全範囲内にある場合はTrue、それ以外の場合はFalseです。
         return self.safe_range[0] <= value <= self.safe_range[1]
