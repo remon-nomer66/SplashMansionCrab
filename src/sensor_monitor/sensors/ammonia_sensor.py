@@ -5,8 +5,26 @@ from sensor_monitor.sensors.base_sensor import BaseSensor
 
 class AmmoniaSensor(BaseSensor):
     def __init__(self, name, interval=5):
-        super().__init__(name, (0.0, 1.0), interval)
+        super().__init__(name, (0.0,0.2), interval)
 
+    def check_amo_list(amo_list):
+        if len(amo_list) >= 5 and all(value > 1 for value in amo_list[-5:]):
+            return 1
+        return 0
+
+    
     def get_value(self):
         # Generate dummy value
-        return round(random.uniform(-0.5, 1.5), 2)
+        #時間で徐々に増加していく信号データを作成する
+   
+        amo_list = []
+        for i in range (0,0.5,0.01):
+            amo_list.append(i)
+        
+        ##flag = check_amo_list(amo_list)
+
+        # return flag
+
+
+
+        # return round(random.uniform(0, 1000), 2) #false
