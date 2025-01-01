@@ -2,3 +2,8 @@
 .venv
 sensor_monitor.egg-info
 sensor_monitor.log
+src/sensor_monitor/__pycache__
+src/sensor_monitor/alerts/__pycache__
+src/sensor_monitor/notifications/__pycache__
+src/sensor_monitor/sensors/__pycache__
+src/sensor_monitor/utils/__pycache__
